@@ -62,10 +62,10 @@ List::List(){ 								// default constructor; start with an empty list
   tail = NULL;
 }
 
-void List::push_back(Item a){ 				// add string to the tail of the list
+void List::push_back(Item a){ 						// add string to the tail of the list
 	
   ListNode *node = new ListNode(a);
-  if (head == NULL){ 						// list is empty
+  if (head == NULL){ 							// list is empty
       head = node;
       tail = node;
     }
@@ -80,11 +80,11 @@ Item List::remove_front(Item &copy) {
 
   if (!empty()) {							// if list is not empty 
 
-      copy = head->getItem(); 				// return copy
+      copy = head->getItem(); 						// return copy
       ListNode *tmp = head->getNext();
       delete head; 							// delete the node
       head = tmp;  							// update the head
-      if (tmp==NULL){ 						// removed last element, empty list
+      if (tmp==NULL){ 							// removed last element, empty list
 			tail = NULL;
 		}
       return copy;
@@ -96,16 +96,16 @@ Item List::remove_front(Item &copy) {
 
 int List::length(){							// get number of items in the list
 	ListNode *tmp = head;
-	for(int m = 0; tmp != NULL; m++){		// basic traversal 
+	for(int m = 0; tmp != NULL; m++){				// basic traversal 
 	tmp = tmp -> next;
 	}
 	return m;
 }
 
-Item List::get(int y){						// get item in the list
+Item List::get(int y){							// get item in the list
 	ListNode *tmp = head;
 	if( y <= length()){						// check if y is within range
-		for(int m = 0; m <= y; m++){		// basic traversal 
+		for(int m = 0; m <= y; m++){				// basic traversal 
 		tmp = tmp -> next;
 		Item nterm = tmp -> getItem();
 		return nterm;
@@ -120,7 +120,7 @@ bool List::empty(){
 
 List::~List(){								// Free all of the ListNodes in the list
 
-	Item copy;								// ? is it copy
+	Item copy;							// ? is it copy
 	  while(!empty()) {
 
       remove_front(copy);
